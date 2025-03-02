@@ -14,7 +14,6 @@ class Game:
         sw_lines = ['___' if i < p1.bottom else '   ' for i in range(max_height)][::-1]
         se_lines = ['___' if i < p2.bottom else '   ' for i in range(max_height)][::-1]
         boundary_width = 22
-        print(f"DEBUG State: Player ({p1.top}, {p1.bottom}), Computer ({p2.top}, {p2.bottom})")
         print(f"{p1.name}          {p2.name}")
         print("-" * boundary_width)
         for i in range(max_height):
@@ -30,7 +29,6 @@ class Game:
             self.display_state()
             print(f"\n{self.current_player.name}'s turn")
             self.current_player.make_move(self.opponent)
-            print(f"DEBUG Post-Move: Player1 ({self.player1.top}, {self.player1.bottom}), Player2 ({self.player2.top}, {self.player2.bottom})")
             self.current_player, self.opponent = self.opponent, self.current_player
         self.display_state()
         print(f"{self.player2.name if self.player1.is_defeated() else self.player1.name} wins!")
